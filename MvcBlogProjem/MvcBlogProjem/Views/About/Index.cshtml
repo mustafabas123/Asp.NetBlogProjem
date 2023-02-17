@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/miniblog/images/img_4.jpg');">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="post-entry text-center">
+                    <h1 class="">Hakkımızda Sayfası</h1>
+                    <p class="lead mb-4 text-white">Deneme 1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+            <div class="col-md-6 order-md-2">
+                <img src="@item.ImageUrl1" alt="Image" class="img-fluid" style="height:400px;width:auto">
+            </div>
+            <div class="col-md-5 mr-auto order-md-1">
+                <h2>Hakkımızda Kısmı</h2>
+                <p>@item.AboutDescription1</p>
+                <ul class="ul-check list-unstyled success">
+                    <li>Onsectetur adipisicing elit</li>
+                    <li>Dolorem saepe non eligendi possimus</li>
+                    <li>Voluptate odit corrupti vitae</li>
+                </ul>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+@Html.Action("MeetTheTeam", "Author")
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+            <div class="col-md-6">
+                <img src="@item.ImageUrl2" alt="Image" class="img-fluid" style="height:400px;width:auto">
+            </div>
+            <div class="col-md-5 ml-auto">
+                <h2>Biz Kimiz</h2>
+                <p class="mb-4">@item.AboutDescription2</p>
+
+                <ul class="ul-check list-unstyled success">
+                    <li>Onsectetur adipisicing elit</li>
+                    <li>Dolorem saepe non eligendi possimus</li>
+                    <li>Voluptate odit corrupti vitae</li>
+                </ul>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+@*@Html.Action("BlogPartial4", "Blog")*@
+@Html.Action("Footer", "About")
+

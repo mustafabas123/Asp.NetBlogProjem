@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewBag.Title = "UpdateBlog";
+    Layout = "~/Views/Shared/_AuthorPanelLayout.cshtml";
+}
+
+<form method="post">
+    @Html.HiddenFor(x => x.BlogId)
+    <br />
+    @Html.Label("Blog Başlık")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    @Html.Label("Görsel Yolu")
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih")
+    @*<input type="date" class="form-control" name="BlogDate" />*@
+    @Html.TextBoxFor(x => x.BlogDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yazar")
+    @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.v2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.BlogDescription, 10, 40, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-danger">Güncelle</button>
+</form>
+

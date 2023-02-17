@@ -1,0 +1,24 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kategory Id</th>
+            <th>Kategory Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

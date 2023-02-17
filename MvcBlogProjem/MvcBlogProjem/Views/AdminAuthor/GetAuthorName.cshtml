@@ -1,0 +1,14 @@
+﻿@using EntityLayer.Concrete
+@model List<Author>
+
+@foreach (var item in Model)
+{
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+        <img src="@item.AuthorImage"  class="img-circle elevation-2" alt="User Image" style="height:50px; width:auto;">
+    </div>
+    <div class="info">
+        <a href="#" class="d-block">@item.AuthorName</a>
+    </div>
+</div>
+}

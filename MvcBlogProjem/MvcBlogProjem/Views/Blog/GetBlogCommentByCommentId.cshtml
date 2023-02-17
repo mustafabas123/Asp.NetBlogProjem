@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+@{
+    ViewBag.Title = "GetBlogCommentByCommentId";
+    Layout = "~/Views/Shared/AdminPanelLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- Timelime example  -->
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                        <div class="col-md-12">
+                            <!-- The time line -->
+                            <div class="timeline">
+                                <!-- timeline time label -->
+                                <div class="time-label">
+                                    <span class="bg-warning">@(((DateTime)item.CommentDate).ToString("dd-MMM-yyyy"))</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-comment bg-gradient-olive"></i>
+                                    <div class="timeline-item">        
+                                        <h3 class="timeline-header"><a href="#">@item.Username</a>   @item.Mail</h3>
+
+                                        <div class="timeline-body">
+                                            @item.CommentContent
+                                        </div>                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                        <!-- /.col -->
+                    </div>
+                </div>
+                <!-- /.timeline -->
+
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+
+</body>
+</html>
+

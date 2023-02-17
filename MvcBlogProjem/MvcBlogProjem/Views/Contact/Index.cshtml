@@ -1,0 +1,83 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/miniblog/images/img_4.jpg');">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="post-entry text-center">
+                    <h1 class="">İletişim Sayfası</h1>
+                    <p class="lead mb-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, adipisci?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 mb-5">
+                <form method="post">
+                    <div class="row form-group">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label class="text-black" for="fname">Ad</label>
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Name)
+                            @*<input type="text" id="fname" class="form-control" name="Name">*@
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-black" for="lname">Soyad</label>
+                            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Surname)
+                            @*<input type="text" id="lname" class="form-control" name="Surname">*@
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                        <div class="col-md-12">
+                            <label class="text-black" for="email">Mail Adresi</label>
+                            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Mail)
+                            @*<input type="email" id="email" class="form-control" name="Mail">*@
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                        <div class="col-md-12">
+                            <label class="text-black" for="subject">Konu</label>
+                            @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Subject)
+                            @*<input type="text id="subject" class="form-control" name="Subject">*@
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="text-black" for="message">Mesaj</label>
+                            @Html.TextAreaFor(x => x.Message, 5, 3, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Message)
+                            @*<textarea name="Message" id="message" cols="30" rows="7" class="form-control" placeholder="Mesajinızız Yazınız"></textarea>*@
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Gönder" class="btn btn-primary py-2 px-4 text-white">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            @Html.Action("MyContactPartials", "Contact")
+
+        </div>
+    </div>
+</div>
+@Html.Action("Footer", "About")
+
